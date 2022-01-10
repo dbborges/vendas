@@ -1,0 +1,30 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: transportadora-api
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/transportadora-db?createDatabaseIfNotExist=true&useSSL=false
+    username: admin
+    password: 123qwe!!
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/registry/eureka
+
+ribbon:
+  eureka:
+    enabled: false
+
+transportadora-api:
+  ribbon:
+    listOfServers: localhost:8084

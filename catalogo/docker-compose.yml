@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  mysql_catalogo:
+    container_name: mysql_catalogo
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: catalogo-db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123qwe!!
+    ports:
+      - "3307:3306"

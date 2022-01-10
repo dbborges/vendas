@@ -1,0 +1,30 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: catalogo-api
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/catalogo-db?createDatabaseIfNotExist=true&useSSL=false
+    username: admin
+    password: 123qwe!!
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/registry/eureka
+
+ribbon:
+  eureka:
+    enabled: false
+
+catalogo-api:
+  ribbon:
+    listOfServers: localhost:8083

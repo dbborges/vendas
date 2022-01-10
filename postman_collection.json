@@ -1,0 +1,497 @@
+{
+	"info": {
+		"_postman_id": "4318f689-e822-4d98-a8bc-88b495627216",
+		"name": "Teste",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Loja",
+			"item": [
+				{
+					"name": "Cadastrar uma nova loja",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n     \"cnpj\": \"39441821000107\",\r\n     \"razao-social\": \"Teste 4\",\r\n     \"nome-fantasia\": \"Teste 11\",\r\n     \"cep\": \"25215-123\",\r\n     \"logradouro\": \"Das Palmeiras\",\r\n     \"numero\": \"123\",\r\n     \"bairro\": \"bairro teste\",\r\n     \"cidade\": \"cidade teste\",\r\n     \"uf\": \"RJ\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/loja-api/v1/lojas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-api",
+								"v1",
+								"lojas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca uma loja por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/loja-api/v1/lojas/60/existe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-api",
+								"v1",
+								"lojas",
+								"60",
+								"existe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca todas as lojas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/loja-api/v1/lojas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-api",
+								"v1",
+								"lojas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca todas os itens de uma loja",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/loja-api/v1/lojas/1/catalogo/itens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-api",
+								"v1",
+								"lojas",
+								"1",
+								"catalogo",
+								"itens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Venda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loja-id1\": 1,\r\n    \"cep\": \"25215283\",\r\n    \"tipo-logradouro\": \"ESTRADA\",\r\n    \"logradouro\": \"São Mateus\",\r\n    \"numero\": \"204\",\r\n    \"complemento\": \"\",\r\n    \"bairro\": \"Jardim Primavera\",\r\n    \"cidade\": \"Duque de Caxias\",\r\n    \"uf\": \"RJ\",\r\n    \"itens-venda\": [\r\n        {\r\n        \"produto_id\": 1,\r\n        \"preco-unitario\": 2600.00,\r\n        \"quantidade\": 2\r\n        },\r\n        {\r\n        \"produto_id\": 2,\r\n        \"preco-unitario\": 1200.00,\r\n        \"quantidade\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/loja-api/v1/vendas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-api",
+								"v1",
+								"vendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Vendas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loja-id\": 1,\r\n    \"data-inicial-da-compra\": \"2022-01-08T00:00:00\",\r\n    \"data-final-da-compra\": \"2022-01-09T00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/loja-api/v1/vendas/buscar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-api",
+								"v1",
+								"vendas",
+								"buscar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar status da entrega",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"venda-id\": 34,\r\n    \"status\": \"ENTREGUE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/loja-api/v1/vendas/atualizarStatusEntrega",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-api",
+								"v1",
+								"vendas",
+								"atualizarStatusEntrega"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Catalogo",
+			"item": [
+				{
+					"name": "Cadastra um catalogo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id-loja\": 1,\r\n    \"nome\": \"Catalogo 2\",\r\n    \"cnpj\": \"31111111122212\",\r\n    \"produtos\": [\r\n        {\r\n        \"nome\": \"Produto 2\",\r\n        \"categoria\": \"CELULARES\",\r\n        \"preco-unitario\": \"1500.00\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/catalogo-api/v1/catalogos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"catalogo-api",
+								"v1",
+								"catalogos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastra um catalogo por id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Catalogo 2\",\r\n    \"cnpj\": \"11111111122212\",\r\n    \"produtos\": [\r\n        {\r\n        \"nome\": \"Produto 1\",\r\n        \"categoria\": \"CELULARES\",\r\n        \"preco-unitario\": \"1500.00\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/catalogo-api/v1/catalogos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"catalogo-api",
+								"v1",
+								"catalogos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar os catálogos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Catalogo 1\",\r\n    \"cnpj\": \"11111111122222\",\r\n    \"produtos\": [\r\n        {\r\n        \"nome\": \"Produto 1\",\r\n        \"categoria\": \"CELULARES\",\r\n        \"preco-unitario\": \"1500.00\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/catalogo-api/v1/catalogos?page=0&size=50&sort=id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"catalogo-api",
+								"v1",
+								"catalogos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "50"
+								},
+								{
+									"key": "sort",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Busca todos os produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/catalogo-api/v1/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"catalogo-api",
+								"v1",
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca produto por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/catalogo-api/v1/produtos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"catalogo-api",
+								"v1",
+								"produtos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar um produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loja_id\": 60,\r\n    \"nome\": \"Produto 2\",\r\n    \"categoria\": \"CELULARES\",\r\n    \"preco-unitario\": 1400.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/catalogo-api/v1/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"catalogo-api",
+								"v1",
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transportadora",
+			"item": [
+				{
+					"name": "Registrar ordem de entrega",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id-venda\": 1,\r\n    \"cep\": 25215283,\r\n    \"tipo-logradouro\": \"ESTRADA\",\r\n    \"logradouro\": \"São Mateus\",\r\n    \"numero\": \"204\",\r\n    \"complemento\": \"\",\r\n    \"bairro\": \"Jardim Primavera\",\r\n    \"cidade\": \"Duque de Caxias\",\r\n    \"uf\": \"RJ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transportadora-api/v1/ordemEntrega",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transportadora-api",
+								"v1",
+								"ordemEntrega"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rastrear ordem de entrega",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id-venda\": 1,\r\n    \"cep\": 25215283,\r\n    \"tipo-logradouro\": \"ESTRADA\",\r\n    \"logradouro\": \"São Mateus\",\r\n    \"numero\": \"204\",\r\n    \"complemento\": \"\",\r\n    \"bairro\": \"Jardim Primavera\",\r\n    \"cidade\": \"Duque de Caxias\",\r\n    \"uf\": \"RJ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transportadora-api/v1/ordemEntrega/rastreamento/32-1641749539903",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transportadora-api",
+								"v1",
+								"ordemEntrega",
+								"rastreamento",
+								"32-1641749539903"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar status da entrega",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"venda-id\": 34,\r\n    \"status\": \"ENTREGUE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transportadora-api/v1/ordensEntrega/atualizarStatusEntrega",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transportadora-api",
+								"v1",
+								"ordensEntrega",
+								"atualizarStatusEntrega"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
